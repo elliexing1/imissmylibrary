@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="keywords" content="Library, Virtual, Ambience, Music, Study, Relax, Background Noise">
+		<meta name="author" content="Ellie Xing">
+		<title>i miss my library</title>
+		<link rel="icon" type="image/PNG" href="assets/favicon.PNG"/>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	</head>
+	<body>
+
+		<section class="header">
+			<button class="nav-links" onclick=" window.open('http://sincerelystudents.com/', '_blank')">blog</button>
+			<button id="modalButton" class="nav-links">about</button>
+
+			<div>
+				<div id="myModal" class="modal">
+				  <div class="modal-content">
+				    <span class="close">&times;</span>
+				    <center><h2>about</h2></center><br>
+				    <p>The library is a magical place, one where time seems to pause and accelerate at the same time. Whether you visited the library to pick up some new books, to dive into a fictional world, or simply to get some work done, the library was there to welcome you. <br><br> The pandemic has taken away the authentic library experience for many of us. And although the atmosphere of a real library cannot be replaced, I hope this page can keep you company at home. <br><br>IMissMyLibrary includes a to-do list and library sound effects to help you stay comfortable and productive. You can adjust the volume of the sounds to your liking. Chrome is recommended for the best experience. <br><br> Inspired by <a href="https://imissmycafe.com/" target="_blank">IMissMyCafe</a>, <a href="http://imissmybar.com/" target="_blank">IMissMyBar</a>, and <a href="https://imisstheoffice.eu/" target="_blank">IMissMyOffice</a>. Sound effects obtained from <a href="https://www.zapsplat.com" target="_blank">ZapSplat</a>. Code and illustration by Ellie Xing. No copyright infringement intended.</p>
+				  </div>
+
+				</div>
+			</div>
+		</section>	
+
+		<section class="content">
+			<div class="left">
+				<div class="text-box">
+					<h1>i miss my library</h1>
+					<p>pick up a book and sit awhile.</p>
+				</div>
+
+				<div class="container">
+					<input type="text" class="txtb" placeholder="Add a task">
+					<div class="notcomp">
+						<h3>Not Completed</h3>
+					</div>
+
+					<div class="comp">
+						<h3>Completed</h3>
+					</div>
+				</div>
+
+				<script type="text/javascript">
+					$(".txtb").on("keyup",function(e){
+						if(e.keyCode==13 && $(".txtb").val() != "") {
+							var task = $("<div class='task'></div>").text($(".txtb").val());
+
+							var del = $("<i class='fas fa-trash-alt'></div>").click(function(){
+								var p=$(this).parent();
+								p.fadeOut(function(){
+									p.remove();
+								})
+							});
+
+							var check = $("<i class='fas fa-check'></div>").click(function(){
+								var p=$(this).parent();
+								p.fadeOut(function(){
+									$(".comp").append(p);
+									p.fadeIn();
+								});
+								$(this).remove();
+							});
+
+							task.append(del, check);
+							$(".notcomp").append(task);
+
+							$(".txtb").val("");
+						}
+				});
+				</script>
+			</div>
+
+			<div class="middle">
+				<img src="assets/image.png" alt="library sketch" class="illustration">
+			</div>
+
+			<div class="right">
+				<div class="massPause">
+					<p id="pauseNotice"> Pause all &nbsp;</p>
+					<input type="checkbox" id="pauseAll" onclick="pauseAll()">
+				</div>
+				<div class="audio unpressed">
+					<span>
+						<p> Rainy Weather &nbsp;</p>
+						<button id="play-0" onclick="playSound(0)"></button>
+					</span>
+					<audio loop id="0">
+						<source src="assets/rain.mp3" type="audio/mpeg">
+						<p> Your browser doesn't support HTML 5 sounds.</p>
+					</audio>
+					<span>
+						<div class="volume-control" id="vol"></div>
+						<input type="range" onchange="changeVolume(0, this.value)" min="0" max="1" step="0.025" value="0.70" class="vol-control">
+					</span>
+				</div>
+
+				<div class="audio unpressed">
+					<span>
+						<p> Sunny Weather &nbsp;</p>
+						<button id="play-5" onclick="playSound(5)"></button>
+					</span>
+					<audio loop id="5">
+						<source src="assets/sunny.mp3" type="audio/mpeg">
+						<p> Your browser doesn't support HTML 5 sounds.</p>
+					</audio>
+					<span>
+						<div class="volume-control" id="vol"></div>
+						<input type="range" onchange="changeVolume(5, this.value)" min="0" max="1" step="0.025" value="0.70" class="vol-control">
+					</span>
+				</div>
+
+				<div class="audio unpressed">
+					<span>
+						<p> Turning Pages &nbsp;</p>
+						<button id="play-1" onclick="playSound(1)"></button>
+					</span>
+					<audio loop id="1">
+						<source src="assets/pages.mp3" type="audio/mpeg">
+						<p> Your browser doesn't support HTML 5 sounds.</p>
+					</audio>
+					<span>
+						<div class="volume-control" id="vol"></div>
+						<input type="range" onchange="changeVolume(1, this.value)" min="0" max="1" step="0.025" value="0.70" class="vol-control">
+					</span>
+				</div>
+				
+				<div class="audio unpressed">
+					<span>
+						<p> Writing On iPad &nbsp;</p>
+						<button id="play-2" onclick="playSound(2)"></button>
+					</span>
+					<audio loop id="2">
+						<source src="assets/ipad.mp3" type="audio/mpeg">
+						<p> Your browser doesn't support HTML 5 sounds.</p>
+					</audio>
+					<span>
+						<div class="volume-control" id="vol"></div>
+						<input type="range" onchange="changeVolume(2, this.value)" min="0" max="1" step="0.025" value="0.70" class="vol-control">
+					</span>
+				</div>
+
+				<div class="audio unpressed">
+					<span>
+						<p> Fireplace Crackling &nbsp;</p>
+						<button id="play-3" onclick="playSound(3)"></button>
+					</span>
+					<audio loop id="3">
+						<source src="assets/fireplace.mp3" type="audio/mpeg">
+						<p> Your browser doesn't support HTML 5 sounds.</p>
+					</audio>
+					<span>
+						<div class="volume-control" id="vol"></div>
+						<input type="range" onchange="changeVolume(3, this.value)" min="0" max="1" step="0.025" value="0.70" class="vol-control">
+					</span>
+				</div>
+
+				<div class="audio unpressed">
+					<span>
+						<p> Typing on Keyboard &nbsp;</p>
+						<button id="play-4" onclick="playSound(4)"></button>
+					</span>
+					<audio loop id="4">
+						<source src="assets/typing.mp3" type="audio/mpeg">
+						<p> Your browser doesn't support HTML 5 sounds.</p>
+					</audio>
+					<span>
+						<div class="volume-control" id="vol"></div>
+						<input type="range" onchange="changeVolume(4, this.value)"min="0" max="1" step="0.025" value="0.70" class="vol-control">
+					</span>
+				</div>
+
+			</div>
+		</section>
+
+		<script src="script.js"></script>
+	</body>
+</html>
+
+
