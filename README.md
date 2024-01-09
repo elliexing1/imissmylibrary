@@ -1,6 +1,7 @@
 # imissmylibrary
 
-IMissMyLibrary is a website created to simulate the ambient sounds of a library. You can access it [here](https://www.imissmylibrary.com/).
+IMissMyLibrary is a website created to simulate the ambient sounds of a library. You can access it [here](https://www.imissmylibrary.com/). 
+Note: This website is no longer being updated.
 
 ## how/why i made it
 IMissMyLibrary was a personal learning project I took on for fun during the summer of 2021. I was entirely inspired by [IMissMyCafe](https://imissmycafe.com/), which had grown popular on social media during that time. Personally, I was (and still am) a big fan of studying and working at both cafés and libraries, so after realizing that there was no similar website for the latter, I decided to try making it myself.
